@@ -7,8 +7,8 @@ define('ROOT', realpath(__DIR__ . '/../../'));
 
 // get information from CLI
 $package_name_full = $_SERVER['argv'][1];
-$package_source = $_SERVER['argv'][2];
-$package_filter = (isset($_SERVER['argv'][3])) ? trim($_SERVER['argv'][3], '/') : '*';
+$package_source    = $_SERVER['argv'][2];
+$package_filter    = (isset($_SERVER['argv'][3])) ? trim($_SERVER['argv'][3], '/') : '*';
 
 list($package_name, $package_release) = preg_split('#-#', $package_name_full);
 
@@ -57,4 +57,3 @@ if (isset($composer_content['target-dir'])) {
 
 $zip->addFromString('composer.json', json_encode($composer_content));
 $zip->close();
-
